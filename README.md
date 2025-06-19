@@ -1,39 +1,71 @@
-## 🤖 Model Training
+📝 BART Text Summarization App
+A full-stack AI-powered text summarization tool using a fine-tuned BART model for generating concise summaries from long text.
 
-This app uses a fine-tuned BART model trained on the [Multi-News Dataset](https://huggingface.co/datasets/multi_news) from Hugging Face.
+✨ Features
+✅ AI-Powered Summarization – Converts lengthy text into short, meaningful summaries.
+✅ Fine-Tuned BART Model – Optimized on the Multi-News dataset for high-quality results.
+✅ React Frontend – Modern, responsive UI for seamless user experience.
+✅ FastAPI Backend – Efficient inference using Hugging Face Transformers.
+✅ Deployed on Vercel – Frontend is live for testing.
 
-### 🛠️ How We Trained
+🚀 Live Demo
+🔗 Frontend (Hosted on Vercel):
+👉 https://text-summarization-using-bart-r7g9.vercel.app/
 
-- We used Hugging Face Transformers and Datasets library
-- Fine-tuned the model using `train/train.ipynb` script
-- Saved and exported the model into `backend/bart_model/`
-- Used `transformers.pipeline("summarization")` for fast inference
+⚠️ Backend (Not Publicly Hosted):
+Due to the large model size (~1.5GB), the backend must be run locally. Follow the setup guide below.
 
-### 📁 Included Files
+🤖 Model Training Details
+📂 Dataset Used
+Multi-News Dataset (Hugging Face Link)
 
-- `train/`: Training script and configs
-- `dataset/`: Contains dataset notes or scripts for loading from Hugging Face
-- `backend/bart_model/`: Contains the fine-tuned BART weights
+Contains news summaries and source articles for training.
 
----
+🛠️ Training Process
+Fine-Tuned BART using Hugging Face transformers.
 
-## 🚀 Deployment
+Training script: train/train.ipynb.
 
-Frontend is deployed on **Vercel**. Backend can be served using FastAPI and optionally hosted on:
+Exported model weights to backend/bart_model/.
 
-- **Render**
-- **Railway**
-- **AWS/EC2**
+Inference handled via transformers.pipeline("summarization").
 
-Frontend consumes the backend API endpoint using `axios`.
+📁 Project Structure
+text
+Text_Summarization_using_Bart/
+├── train/            # Training scripts & configs
+├── dataset/          # Dataset loading scripts
+├── backend/          # FastAPI server & BART model
+│   ├── bart_model/   # Fine-tuned model weights
+│   └── main.py       # FastAPI inference server
+└── frontend/         # React app
+🛠️ Local Setup Guide
+📥 Clone the Repository
+bash
+git clone https://github.com/armond-jose/Text_Summarization_using_Bart.git
+cd Text_Summarization_using_Bart
+💻 Backend Setup (FastAPI + BART Model)
+1. Navigate to the Backend
+bash
+cd backend
+2. (Optional) Create a Virtual Environment
+bash
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
 
-## 📦 Download Model & Dataset
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+3. Install Dependencies
+bash
+pip install -r requirements.txt
+4. Download & Place Model Weights
+Download Model: Google Drive Link (Replace with actual link)
 
-Due to GitHub’s file size limits, we are hosting large files on Google Drive.
+Place model.safetensors inside backend/bart_model/.
 
-👉 [Click here to access the model and dataset](https://drive.google.com/drive/folders/1aG61fL_-AeY02PezMnaRtLLiiDYM23wu?usp=sharing)
-
-### Included:
-- `model.safetensors`: Fine-tuned BART model
-- `multi_news_*.csv`: Train, validation, test splits
-- `train/`: Training scripts
+5. Run FastAPI Server
+bash
+uvicorn main:app --host 0.0.0.0 --port 8000
+🔗 API Endpoint: http://localhost:8000/summarize
