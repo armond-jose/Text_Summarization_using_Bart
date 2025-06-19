@@ -11,6 +11,10 @@ import {
   Box,
 } from '@mui/material';
 
+// 🔧 Toggle between local and deployed backend
+const BACKEND_URL = 'http://localhost:8000/summarize';
+// const BACKEND_URL = 'https://your-backend-url.onrender.com/summarize';
+
 function App() {
   const [inputText, setInputText] = useState('');
   const [summary, setSummary] = useState('');
@@ -28,7 +32,7 @@ function App() {
     setError('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/summarize', {
+      const response = await axios.post(BACKEND_URL, {
         text: inputText,
       });
       setSummary(response.data.summary);
@@ -68,7 +72,6 @@ function App() {
               input: { color: '#ffffff' },
               textarea: { color: '#ffffff' },
               label: { color: '#d4af37' },
-              borderColor: '#444',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
                   borderColor: '#555',
