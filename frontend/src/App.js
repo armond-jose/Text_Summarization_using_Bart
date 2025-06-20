@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 
 // 🔧 Toggle between local and deployed backend
-const BACKEND_URL = 'http://localhost:8000/summarize';
+const BACKEND_URL = 'https://abcd1234.ngrok.io/summarize';
 // const BACKEND_URL = 'https://your-backend-url.onrender.com/summarize';
 
 function App() {

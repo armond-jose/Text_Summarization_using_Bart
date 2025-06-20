@@ -42,7 +42,28 @@ class TextRequest(BaseModel):
 
 @app.post("/summarize")
 def summarize_text(request: TextRequest):
-    inputs = tokenizer([request.text], return_tensors='pt', max_length=1024, truncation=True)
-    summary_ids = model.generate(inputs['input_ids'], num_beams=4, max_length=130, early_stopping=True)
+    input_text = request.text.strip()
+
+    # Tokenize just to get the input length
+    input_tokens = tokenizer.encode(input_text, return_tensors="pt", truncation=True, max_length=1024)
+    input_len = input_tokens.shape[1]
+
+    # Dynamically set summary length (e.g., 15%–30% of input length)
+    min_summary_len = max(30, int(0.15 * input_len))
+    max_summary_len = max(50, int(0.3 * input_len))
+
+    inputs = tokenizer([input_text], return_tensors='pt', truncation=True, max_length=1024)
+
+    summary_ids = model.generate(
+        inputs['input_ids'],
+        num_beams=4,
+        min_length=min_summary_len,
+        max_length=max_summary_len,
+        length_penalty=1.0,
+        no_repeat_ngram_size=3,
+        early_stopping=True
+    )
+
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return {"summary": summary}
+
