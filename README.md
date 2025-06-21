@@ -84,7 +84,6 @@ This folder contains:
 📷 Screenshots of the working web app:
 
 - ![Output 1](screenshots/Screenshot%202025-06-21%20112027.png)
-
 - ![Output 2](screenshots/Screenshot%202025-06-21%20110602.png)
 
 ---
@@ -96,3 +95,12 @@ This folder contains:
 - 🌐 Frontend: React + Axios + Material UI
 - 🧪 Deployment: Vercel (Frontend), Localhost/ngrok (Backend)
 
+---
+
+## 💡 Try It With Longer Text!
+
+BART (Bidirectional and Auto-Regressive Transformer) shines when handling rich and complex input. It's particularly effective at generating abstractive summaries from long, multi-paragraph documents — not just short texts.
+
+📝 Try pasting in full articles, essays, or reports and see how well it condenses them into fluent, human-like summaries. The model captures context, relationships, and key points beautifully, thanks to its pretraining and fine-tuning on the Multi-News dataset.
+
+Feel free to experiment and see how it performs with real-world content!

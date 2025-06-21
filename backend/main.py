@@ -44,7 +44,7 @@ class TextRequest(BaseModel):
 def summarize_text(request: TextRequest):
     input_text = request.text.strip()
 
-    if len(input_text.split()) < 10:
+    if len(input_text.split()) < 11:
         return {"summary": input_text}
 
     # Tokenize just to get the input length
