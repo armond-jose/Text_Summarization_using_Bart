@@ -12,13 +12,9 @@ import {
 } from '@mui/material';
 
 // 🔧 Toggle between local and deployed backend
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 const BACKEND_URL = 'https://07c5-2409-40f3-1017-3733-984-5515-c946-83af.ngrok-free.app/';
-=======
-=======
-const BACKEND_URL = 'https://07c5-2409-40f3-1017-3733-984-5515-c946-83af.ngrok-free.app/';
->>>>>>> 66097dc (Update backend URL to public ngrok link)
+
 
 
 // const BACKEND_URL = 'https://your-backend-url.onrender.com/summarize';
