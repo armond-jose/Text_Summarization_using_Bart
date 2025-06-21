@@ -1,3 +1,16 @@
+# 📚 Text Summarization using BART
+
+This project demonstrates a full-stack text summarization app powered by a fine-tuned Facebook BART model. It summarizes long-form inputs into concise and coherent summaries.
+
+---
+
+## 🌐 Live Demo (Frontend)
+
+✅ Deployed on Vercel:  
+🔗 https://text-summarization-using-bart.vercel.app/
+
+---
+
 <details>
   <summary>⚙️ <strong>How to Run the Backend Locally</strong> (Click to expand)</summary>
 
@@ -38,7 +51,7 @@
      ```bash
      ngrok http 8000
      ```
-     🔗 Then copy the generated public URL (e.g. `https://abcd1234.ngrok-free.app`) and update the frontend `BACKEND_URL` accordingly in `App.js`.
+     🔗 Then copy the generated public URL (e.g. `https://abcd1234.ngrok-free.app`) and update the frontend `BACKEND_URL` in `App.js`.
 
 </details>
 
@@ -46,34 +59,40 @@
 
 ## 📁 Dataset and Model Download
 
-You can access the fine-tuned model and training dataset via this Google Drive folder:
+📦 Download from Google Drive:  
+https://drive.google.com/drive/folders/1iwcIrBVMn0EGqziYMjjdyGJPVeJU8nvq?usp=sharing
 
-📦 [Download Model & Dataset (Google Drive)](https://drive.google.com/drive/folders/1iwcIrBVMn0EGqziYMjjdyGJPVeJU8nvq?usp=sharing)
+This folder contains:
+
+- 🧠 Fine-tuned BART model (`bart_model/`)
+- 📊 Training dataset (Multi-News)
 
 ---
 
-## 🧠 Model Fine-Tuning
+## 🧠 Model Fine-Tuning Details
 
-The model used in this project is a fine-tuned version of Facebook’s `facebook/bart-large-cnn`.
-
-- 🧾 Dataset: [Multi-News Dataset on Hugging Face](https://huggingface.co/datasets/multi_news)
-- 🔧 Fine-Tuning: The model was trained on the Multi-News dataset, which contains multiple news articles grouped by topic. It was fine-tuned using the Transformers library from Hugging Face with a summarization objective.
+- ✅ Base Model: [`facebook/bart-large-cnn`](https://huggingface.co/facebook/bart-large-cnn)
+- 🧾 Dataset: [Multi-News on Hugging Face](https://huggingface.co/datasets/multi_news)
+- 🛠️ Fine-tuning was performed using Hugging Face's Transformers library for summarization:
+  - Trained to summarize multiple related news articles into a single coherent summary.
+  - Training included dynamic max length, beam search, and content compression optimization.
 
 ---
 
 ## 🖼️ Screenshots
 
-> Add screenshots here to showcase the functionality and UI.
+📷 Screenshots of the working web app:
 
-### 🖼️ Output Screenshots
-
-- ![output 1](screenshots/Screenshot%202025-06-21%20112027.png)
-- ![output 2](screenshots/Screenshot%202025-06-21%20112515.png)
-- ![output 3](screenshots/Screenshot%202025-06-21%20110602.png)
-
-
-> 📷 Place your screenshots in a folder called `screenshots/` inside the root of your repo.
+- ![Output 1](screenshots/Screenshot%202025-06-21%20112027.png)
+- ![Output 2](screenshots/Screenshot%202025-06-21%20112515.png)
+- ![Output 3](screenshots/Screenshot%202025-06-21%20110602.png)
 
 ---
 
-Let me know if you'd like a collapsible section for fine-tuning details or to auto-toggle URLs in App.js for ngrok vs. localhost. I can help with both!
+## 📦 Tech Stack
+
+- 🤖 Model: Facebook BART fine-tuned on Multi-News
+- 🔁 Backend: FastAPI + Transformers + PyTorch
+- 🌐 Frontend: React + Axios + Material UI
+- 🧪 Deployment: Vercel (Frontend), Localhost/ngrok (Backend)
+
