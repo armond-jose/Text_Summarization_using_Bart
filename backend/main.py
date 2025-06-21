@@ -44,6 +44,9 @@ class TextRequest(BaseModel):
 def summarize_text(request: TextRequest):
     input_text = request.text.strip()
 
+    if len(input_text.split()) < 10:
+        return {"summary": input_text}
+
     # Tokenize just to get the input length
     input_tokens = tokenizer.encode(input_text, return_tensors="pt", truncation=True, max_length=1024)
     input_len = input_tokens.shape[1]

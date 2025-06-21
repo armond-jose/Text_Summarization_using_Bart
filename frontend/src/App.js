@@ -13,7 +13,9 @@ import {
 
 // 🔧 Toggle between local and deployed backend
 
-const BACKEND_URL = 'https://07c5-2409-40f3-1017-3733-984-5515-c946-83af.ngrok-free.app/summarize';
+// App.js
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000/summarize';
+
 
 
 
