@@ -84,8 +84,8 @@ This folder contains:
 📷 Screenshots of the working web app:
 
 - ![Output 1](screenshots/Screenshot%202025-06-21%20112027.png)
-- ![Output 2](screenshots/Screenshot%202025-06-21%20112515.png)
-- ![Output 3](screenshots/Screenshot%202025-06-21%20110602.png)
+
+- ![Output 2](screenshots/Screenshot%202025-06-21%20110602.png)
 
 ---
 
